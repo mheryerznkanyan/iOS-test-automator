@@ -1,0 +1,343 @@
+# ============================================
+# iOS Test Automator - .gitignore
+# ============================================
+
+# ============================================
+# Secrets & Environment Variables
+# ============================================
+
+/generation_metadata/*
+.env
+.env.local
+.env.production
+.env.*.local
+*.env
+.env.*
+!.env.example
+
+# API Keys
+**/ANTHROPIC_API_KEY
+**/api_keys.txt
+
+# ============================================
+# Python
+# ============================================
+# Virtual Environments
+venv/
+.venv/
+env/
+ENV/
+env.bak/
+venv.bak/
+python-backend/venv/
+python-rag/.venv/
+streamlit-ui/venv/
+
+# Python Cache
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+
+# Distribution / Packaging
+build/
+develop-eggs/
+dist/
+downloads/
+eggs/
+.eggs/
+lib/
+lib64/
+parts/
+sdist/
+var/
+wheels/
+pip-wheel-metadata/
+share/python-wheels/
+*.egg-info/
+.installed.cfg
+*.egg
+MANIFEST
+
+# PyInstaller
+*.manifest
+*.spec
+
+# Unit test / coverage reports
+htmlcov/
+.tox/
+.nox/
+.coverage
+.coverage.*
+.cache
+nosetests.xml
+coverage.xml
+*.cover
+*.log
+.hypothesis/
+.pytest_cache/
+*.d
+*dia
+
+# Jupyter Notebook
+.ipynb_checkpoints
+
+# pyenv
+.python-version
+*.pyc
+# Celery
+celerybeat-schedule
+celerybeat.pid
+
+# ============================================
+# macOS
+# ============================================
+.DS_Store
+.AppleDouble
+.LSOverride
+._*
+
+# Thumbnails
+.Thumbnails
+
+# Files that might appear in the root of a volume
+.DocumentRevisions-V100
+.fseventsd
+.Spotlight-V100
+.TemporaryItems
+.Trashes
+.VolumeIcon.icns
+.com.apple.timemachine.donotpresent
+
+# Directories potentially created on remote AFP share
+.AppleDB
+.AppleDesktop
+Network Trash Folder
+Temporary Items
+.apdisk
+
+# ============================================
+# iOS / Xcode
+# ============================================
+# Build artifacts
+ios-app/src/**/.build/
+ios-app/src/**/DerivedData/
+ios-app/src/**/build/
+*.xcodeproj/*
+!*.xcodeproj/project.pbxproj
+!*.xcodeproj/xcshareddata/
+!*.xcodeproj/project.xcworkspace/
+*.xcworkspace/*
+!*.xcworkspace/contents.xcworkspacedata
+!*.xcworkspace/xcshareddata/
+
+# Xcode user-specific files
+*.xcuserstate
+*.xcuserdatad/
+*.mode1v3
+*.mode2v3
+*.perspectivev3
+*.pbxuser
+xcuserdata/
+
+# App packaging
+*.ipa
+*.dSYM.zip
+*.dSYM
+
+# CocoaPods
+ios-app/src/**/Pods/
+Podfile.lock
+
+# Carthage
+Carthage/Build/
+Carthage/Checkouts/
+
+# Swift Package Manager
+.swiftpm/
+**/Package.resolved
+
+# fastlane
+fastlane/report.xml
+fastlane/Preview.html
+fastlane/screenshots/**/*.png
+fastlane/test_output
+
+# Accio
+Dependencies/
+.accio/
+
+# ============================================
+# Test Recordings & Generated Files
+# ============================================
+# Video recordings from test execution
+*.mp4
+*.mov
+test_recording*.mp4
+recordings/
+streamlit-ui/recordings/
+
+# Generated test files (keep templates, ignore generated)
+ios-app/src/SampleApp/SampleAppUITests/Generated/
+**/LLMGeneratedTest.swift
+
+# Test outputs
+test_output.log
+test_results.xml
+*.xcresult
+
+# Screenshots
+screenshots/
+*.png
+!docs/*.png  # Keep documentation images
+
+# ============================================
+# RAG / Vector Store
+# ============================================
+# ChromaDB vector store (large binary files)
+python-rag/rag_store/
+**/rag_store/
+*.chromadb
+chroma.sqlite3
+
+# Embeddings cache
+embeddings_cache/
+.embeddings/
+
+# ============================================
+# Generation Metadata
+# ============================================
+generation_metadata/*.json
+!generation_metadata/.gitkeep
+
+# ============================================
+# Logs
+# ============================================
+*.log
+logs/
+*.log.*
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+backend.log
+streamlit.log
+
+# ============================================
+# Docker
+# ============================================
+docker-compose.override.yml
+.dockerignore
+
+# ============================================
+# IDEs
+# ============================================
+# VSCode
+.vscode/
+!.vscode/settings.json
+!.vscode/tasks.json
+!.vscode/launch.json
+!.vscode/extensions.json
+*.code-workspace
+
+# Claude/AI tools
+.claude/
+.specify/
+!.claude/commands/
+!.specify/templates/
+
+# PyCharm
+.idea/
+*.iml
+*.iws
+
+# Sublime Text
+*.sublime-project
+*.sublime-workspace
+
+# Vim
+*.swp
+*.swo
+*~
+
+# ============================================
+# Databases
+# ============================================
+*.sqlite
+*.sqlite3
+*.db
+*.db-shm
+*.db-wal
+
+# PostgreSQL
+*.pgsql
+*.dump
+
+# ============================================
+# Temporary & Cache Files
+# ============================================
+tmp/
+temp/
+*.tmp
+*.temp
+*.cache
+.cache/
+
+# ============================================
+# OS Generated
+# ============================================
+Thumbs.db
+ehthumbs.db
+Desktop.ini
+$RECYCLE.BIN/
+
+# ============================================
+# Monitoring & Analytics
+# ============================================
+.sentry/
+sentry-debug-meta/
+
+# ============================================
+# Backup Files
+# ============================================
+*.bak
+*.backup
+*.old
+*~
+
+# ============================================
+# Node.js (if used for tooling)
+# ============================================
+node_modules/
+npm-debug.log
+yarn.lock
+package-lock.json
+
+# ============================================
+# Streamlit
+# ============================================
+.streamlit/secrets.toml
+
+# ============================================
+# Certificates & Keys
+# ============================================
+*.pem
+*.key
+*.crt
+*.p12
+*.mobileprovision
+
+# ============================================
+# Large Files (use Git LFS if needed)
+# ============================================
+*.zip
+*.tar.gz
+*.rar
+
+# ============================================
+# Keep These
+# ============================================
+!.gitkeep
+!README.md
+!requirements.txt
+!.env.example

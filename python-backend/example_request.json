@@ -1,0 +1,24 @@
+{
+  "test_description": "Test that attempting to login with empty email and password fields shows an error message and stays on the login screen",
+  "test_type": "ui",
+  "app_context": {
+    "app_name": "MyApp",
+    "ui_elements": {
+      "LoginScreen": [
+        "emailTextField",
+        "passwordTextField",
+        "loginButton",
+        "errorLabel"
+      ]
+    },
+    "accessibility_ids": [
+      "login_email_field",
+      "login_password_field",
+      "login_button",
+      "error_message_label",
+      "login_screen_container"
+    ]
+  },
+  "class_name": "LoginValidationTests",
+  "include_comments": true
+}

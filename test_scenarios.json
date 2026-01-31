@@ -1,0 +1,88 @@
+{
+  "scenarios": [
+    {
+      "name": "login_success",
+      "description": "Test successful login: enter test@example.com and password123, tap login button, and verify Items tab appears after successful login",
+      "class_name": "LoginSuccessTest",
+      "needs_login": false,
+      "category": "authentication"
+    },
+    {
+      "name": "login_invalid_credentials",
+      "description": "Test login with invalid credentials: enter test@example.com and wrongpassword, tap login button, and verify error message appears showing login failed",
+      "class_name": "LoginInvalidCredentialsTest",
+      "needs_login": false,
+      "category": "authentication"
+    },
+    {
+      "name": "login_empty_email",
+      "description": "Test login validation with empty email: leave email field empty, enter password123 in password field, and verify login button is disabled because email is required",
+      "class_name": "LoginEmptyEmailTest",
+      "needs_login": false,
+      "category": "validation"
+    },
+    {
+      "name": "login_invalid_email_format",
+      "description": "Test email validation: enter invalid email 'notanemail' without @ symbol in email field, and verify email error message appears showing invalid format",
+      "class_name": "LoginInvalidEmailTest",
+      "needs_login": false,
+      "category": "validation"
+    },
+    {
+      "name": "item_list_display",
+      "description": "Test item list display after login: first login with test@example.com and password123, verify Items tab is visible, then check that item list shows multiple items with titles and prices",
+      "class_name": "ItemListDisplayTest",
+      "needs_login": true,
+      "category": "items"
+    },
+    {
+      "name": "item_search",
+      "description": "Test item search functionality: first login with test@example.com and password123, tap on search field with accessibility ID searchField, type 'Electronics' to filter items, and verify filtered results show only Electronics category items",
+      "class_name": "ItemSearchTest",
+      "needs_login": true,
+      "category": "items"
+    },
+    {
+      "name": "item_detail_navigation",
+      "description": "Test navigation to item detail: first login with test@example.com and password123, wait for item list to load, tap on the first item in the list, and verify item detail screen appears showing item title, price, description, and edit button",
+      "class_name": "ItemDetailNavigationTest",
+      "needs_login": true,
+      "category": "navigation"
+    },
+    {
+      "name": "item_pagination",
+      "description": "Test item pagination: first login with test@example.com and password123, scroll to bottom of item list, tap the Load More button with accessibility ID loadMoreButton, wait for loading, and verify additional items appear in the list",
+      "class_name": "ItemPaginationTest",
+      "needs_login": true,
+      "category": "items"
+    },
+    {
+      "name": "profile_view",
+      "description": "Test profile screen: first login with test@example.com and password123, tap on Profile tab, and verify profile screen shows welcome message, user email test@example.com, and logout button",
+      "class_name": "ProfileViewTest",
+      "needs_login": true,
+      "category": "profile"
+    },
+    {
+      "name": "logout_flow",
+      "description": "Test logout functionality: first login with test@example.com and password123, navigate to Profile tab, tap logout button with accessibility ID logoutButton, and verify return to login screen with email and password fields visible",
+      "class_name": "LogoutFlowTest",
+      "needs_login": true,
+      "category": "authentication"
+    },
+    {
+      "name": "item_edit_flow",
+      "description": "Test item editing: first login with test@example.com and password123, tap first item in list to open detail view, tap edit button with accessibility ID editButton, verify edit form appears with title field, description field and price field, modify the title, tap save button, and verify sheet dismisses",
+      "class_name": "ItemEditFlowTest",
+      "needs_login": true,
+      "category": "items"
+    },
+    {
+      "name": "tab_navigation",
+      "description": "Test tab navigation: first login with test@example.com and password123, verify Items tab is selected initially, tap Profile tab button, verify profile screen appears, tap Items tab button again, and verify return to items list",
+      "class_name": "TabNavigationTest",
+      "needs_login": true,
+      "category": "navigation"
+    }
+  ]
+}
