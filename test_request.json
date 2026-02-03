@@ -1,0 +1,7 @@
+{
+  "test_description": "Open the app and verify audiobooks are displayed on the home screen",
+  "test_type": "ui",
+  "class_name": "ShelfPlayerHomeTests",
+  "include_comments": true,
+  "rag_top_k": 10
+}

@@ -21,12 +21,13 @@ BACKEND_URL = os.getenv("BACKEND_URL", "http://localhost:8000")
 
 # Use absolute paths like the working shell script
 PROJECT_ROOT = "/Users/mheryerznkanyan/Projects/iOS-test-automator"
-PROJECT_DIR = f"{PROJECT_ROOT}/ios-app/src/SampleApp"
-XCODE_PROJECT = f"{PROJECT_DIR}/SampleApp.xcodeproj"
-XCODE_SCHEME = "SampleApp"
-TEST_TARGET = "SampleAppUITests"
+# ShelfPlayer configuration
+PROJECT_DIR = "/Users/mheryerznkanyan/Projects/ShelfPlayer"
+XCODE_PROJECT = f"{PROJECT_DIR}/ShelfPlayer.xcodeproj"
+XCODE_SCHEME = "Multiplatform"
+TEST_TARGET = "ShelfPlayerUITests"
 # Save to LLMGeneratedTest.swift - the file that's included in the Xcode project
-TEST_FILE = f"{PROJECT_DIR}/SampleAppUITests/LLMGeneratedTest.swift"
+TEST_FILE = f"{PROJECT_DIR}/ShelfPlayerUITests/LLMGeneratedTest.swift"
 RECORDINGS_DIR = f"{PROJECT_ROOT}/streamlit-ui/recordings"
 
 # Simulator configuration - will be detected dynamically
@@ -189,6 +190,7 @@ def build_for_testing(simulator_id: str, clean_build: bool = False) -> tuple[boo
                 "-project", XCODE_PROJECT,
                 "-scheme", XCODE_SCHEME,
                 "-destination", f"platform=iOS Simulator,id={simulator_id}",
+                "-skipMacroValidation",
                 "-quiet"
             ]
         else:
@@ -199,6 +201,7 @@ def build_for_testing(simulator_id: str, clean_build: bool = False) -> tuple[boo
                 "-project", XCODE_PROJECT,
                 "-scheme", XCODE_SCHEME,
                 "-destination", f"platform=iOS Simulator,id={simulator_id}",
+                "-skipMacroValidation",
                 "-quiet"
             ]
 
@@ -269,7 +272,8 @@ def run_xcode_test(class_name: str, swift_code: str, simulator_id: str, record_v
             "-destination", f"id={simulator_id}",
             f"-only-testing:{TEST_TARGET}/{class_name}/{test_method}",
             "-parallel-testing-enabled", "NO",
-            "-maximum-concurrent-test-simulator-destinations", "1"
+            "-maximum-concurrent-test-simulator-destinations", "1",
+            "-skipMacroValidation"
         ]
 
         st.info(f"Running test: {class_name}/{test_method} on simulator {simulator_id[:8]}...")
