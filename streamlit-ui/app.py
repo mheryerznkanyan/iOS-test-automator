@@ -225,6 +225,13 @@ def extract_test_method_name(swift_code: str) -> str:
         return match.group(1)
     return "testExample"
 
+def extract_class_name_from_code(swift_code: str) -> str:
+    """Extract actual class name from Swift code"""
+    match = re.search(r'(?:final\s+)?class\s+(\w+)\s*:', swift_code)
+    if match:
+        return match.group(1)
+    return None
+
 def run_xcode_test(class_name: str, swift_code: str, simulator_id: str, record_video: bool = True) -> tuple[bool, str, str]:
     """Run the generated test using xcodebuild with optional video recording"""
     recording_path = None
@@ -675,10 +682,16 @@ with tab1:
                                         st.success("✅ Build successful")
                                         progress_bar.progress(50, text="[2/4] Running test with video recording...")
 
+                                        # Extract actual class name from generated code
+                                        actual_class_name = extract_class_name_from_code(test_data["swift_code"])
+                                        if not actual_class_name:
+                                            st.error("Could not extract class name from generated code")
+                                            actual_class_name = class_name  # fallback
+
                                         # Run test with recording
                                         with st.spinner(f"Running test on {SIMULATOR_NAME}... 📹 Recording video"):
                                             success, output, recording_path = run_xcode_test(
-                                                class_name,
+                                                actual_class_name,  # Use actual class name from code!
                                                 test_data["swift_code"],
                                                 sim_id,
                                                 record_video=True
