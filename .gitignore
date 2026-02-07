@@ -14,7 +14,7 @@
 *.env
 .env.*
 !.env.example
-
+ios-app/
 # API Keys
 **/ANTHROPIC_API_KEY
 **/api_keys.txt
@@ -121,34 +121,52 @@ Temporary Items
 # iOS / Xcode
 # ============================================
 # Build artifacts
-ios-app/src/**/.build/
-ios-app/src/**/DerivedData/
-ios-app/src/**/build/
+ios-app/**/.build/
+ios-app/**/build/
+ios-app/**/Build/
+ios-app/**/DerivedData/
+ios-app/**/Index/
+ios-app/**/.swiftpm/
+ios-app/**/xcuserdata/
+
+# Xcode project files (keep shared, exclude user-specific)
 *.xcodeproj/*
 !*.xcodeproj/project.pbxproj
 !*.xcodeproj/xcshareddata/
 !*.xcodeproj/project.xcworkspace/
+!*.xcodeproj/project.xcworkspace/contents.xcworkspacedata
+!*.xcodeproj/project.xcworkspace/xcshareddata/
+
+# Xcode workspace files (keep shared, exclude user-specific)
 *.xcworkspace/*
 !*.xcworkspace/contents.xcworkspacedata
 !*.xcworkspace/xcshareddata/
 
 # Xcode user-specific files
+**/xcuserdata/
 *.xcuserstate
 *.xcuserdatad/
 *.mode1v3
 *.mode2v3
 *.perspectivev3
 *.pbxuser
-xcuserdata/
 
-# App packaging
+# Xcode build products
+*.hmap
 *.ipa
 *.dSYM.zip
 *.dSYM
+*.app
+*.framework
+
+# Xcode playground
+*.playground
+timeline.xctimeline
+playground.xcworkspace
 
 # CocoaPods
-ios-app/src/**/Pods/
-Podfile.lock
+ios-app/**/Pods/
+**/Podfile.lock
 
 # Carthage
 Carthage/Build/
@@ -157,6 +175,7 @@ Carthage/Checkouts/
 # Swift Package Manager
 .swiftpm/
 **/Package.resolved
+**/.build/
 
 # fastlane
 fastlane/report.xml
@@ -167,6 +186,9 @@ fastlane/test_output
 # Accio
 Dependencies/
 .accio/
+
+# Xcode Breakpoints
+*.xcbkptlist
 
 # ============================================
 # Test Recordings & Generated Files
@@ -240,11 +262,14 @@ docker-compose.override.yml
 !.vscode/extensions.json
 *.code-workspace
 
-# Claude/AI tools
+# Claude/AI tools (keep specify, exclude claude user data)
 .claude/
-.specify/
 !.claude/commands/
-!.specify/templates/
+
+# Specify runtime databases (keep documents and templates)
+.specify/memory/run_history.db
+.specify/memory/*.sqlite
+.specify/memory/*.sqlite3
 
 # PyCharm
 .idea/
